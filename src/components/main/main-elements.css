@@ -1,0 +1,208 @@
+.Container {
+    display: flex;
+    position: relative;
+    padding-bottom: 0;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.Content {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 24px 12px;
+    width: auto;
+    height: 100%;
+}
+
+.LinksContainer {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    max-width: 680px;
+    padding-bottom: 80px;
+}
+
+.Background {
+    /*background: linear-gradient(0deg, rgb(255, 185, 198), rgb(105, 79, 246));*/
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+.AuthorContainer {
+    margin-bottom: 16px;
+}
+
+.AuthorContent {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 12px;
+    margin-bottom: 32px;
+    width: 100%;
+    height: 100%;
+}
+
+.AuthorAvatarWrapper {
+  margin-bottom: 16px;
+}
+
+.AuthorAvatar {
+    border: solid #fff;
+    border-radius: 50%;
+    width: 96px;
+    height: 96px;
+    display: block;
+    object-fit: contain;
+    object-position: initial;
+    filter: none;
+}
+
+.AuthorName {
+    margin: 0 12px;
+    max-width: 100%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.AuthorDescription {
+    margin: 8px 0 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 16px;
+    color: #fff;
+}
+
+.SectionHeaderWrapper {
+    padding-bottom: 24px;
+}
+
+.Add {
+    padding-top: 24px;
+}
+
+.SectionHeader {
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.SectionItemWrapper {
+    position: relative;
+}
+
+.SectionItem {
+    z-index: 0;
+    overflow: hidden;
+    margin-bottom: 16px;
+    transition: box-shadow 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, border-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, background-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border-radius: 0;
+    position: relative;
+    height: auto;
+}
+
+.SectionItem:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    color: rgb(105, 79, 246);
+}
+
+.SectionLink {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    white-space: normal;
+    background: none;
+    color: inherit;
+    transition: box-shadow 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, border-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, background-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+    padding: 16px 66px;
+    margin: 0;
+    border: none;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: auto;
+    position: relative;
+    width: 100%;
+    appearance: none;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.SocialIcon {
+    font-size: 32px;
+    color: white;
+}
+
+.SocialText {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5;
+    font-size: 16px;
+    width: 100%;
+}
+
+.CopyrightWrapper {
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.Copyright, .CopyrightLink{
+    font-size: 20px;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+
+.CopyrightLink:hover {
+    color: rgb(201, 201, 201);
+}
+
