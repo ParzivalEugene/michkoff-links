@@ -1,5 +1,5 @@
 import React from "react";
-import {CgWebsite, FaCode, FaDiscord, FaGithub, FaHeart, FaInstagram, FaPatreon, FaReact} from "react-icons/all";
+import {CgWebsite, FaCode, FaDiscord, FaGithub, FaHeart, FaInstagram, FaPatreon, FaReact, FaMoneyBillAlt} from "react-icons/all";
 import "./main-elements.css"
 import avatar from "../../images/avatar.jpg"
 
@@ -113,6 +113,22 @@ function Main() {
                 >
                   <FaDiscord/>
                   <p className="SocialText">Top.gg</p>
+                </a>
+              </div>
+            </div>
+            <div className="SectionHeaderWrapper Add">
+              <h3 className="SectionHeader">Donation</h3>
+            </div>
+            <div className="SectionItemWrapper">
+              <div className="SectionItem">
+                <a
+                  href="https://www.tinkoff.ru/sl/N4WrFLpAiu"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="SectionLink"
+                >
+                  <FaMoneyBillAlt/>
+                  <p className="SocialText">INVINCIBLE WARRIORS FUND</p>
                 </a>
               </div>
             </div>
