@@ -1,5 +1,17 @@
 import React from "react";
-import {CgWebsite, FaCode, FaDiscord, FaGithub, FaHeart, FaInstagram, FaPatreon, FaReact, FaMoneyBillAlt} from "react-icons/all";
+import {
+  CgWebsite,
+  FaCode,
+  FaDiscord,
+  FaGithub,
+  FaHeart,
+  FaInstagram,
+  FaPatreon,
+  FaReact,
+  FaMoneyBillAlt,
+  FaMedium,
+  CgProfile
+} from "react-icons/all";
 import "./main-elements.css"
 import avatar from "../../images/avatar.jpg"
 
@@ -21,6 +33,18 @@ function Main() {
             </div>
             <div className="SectionHeaderWrapper">
               <h3 className="SectionHeader">Social Media</h3>
+            </div>
+            <div className="SectionItemWrapper">
+              <div className="SectionItem">
+                <a
+                  href="https://michkoff.com/"
+                  rel="noreferrer"
+                  className="SectionLink"
+                >
+                  <CgProfile/>
+                  <p className="SocialText">Portfolio</p>
+                </a>
+              </div>
             </div>
             <div className="SectionItemWrapper">
               <div className="SectionItem">
@@ -58,6 +82,19 @@ function Main() {
                 >
                   <FaGithub/>
                   <p className="SocialText">GitHub</p>
+                </a>
+              </div>
+            </div>
+            <div className="SectionItemWrapper">
+              <div className="SectionItem">
+                <a
+                  href="https://michkoff.medium.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="SectionLink"
+                >
+                  <FaMedium/>
+                  <p className="SocialText">Medium</p>
                 </a>
               </div>
             </div>
