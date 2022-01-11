@@ -1,16 +1,17 @@
 import React from "react";
 import {
-  CgWebsite,
   FaCode,
   FaDiscord,
   FaGithub,
   FaHeart,
-  FaInstagram,
   FaPatreon,
   FaReact,
   FaMoneyBillAlt,
   FaMedium,
-  CgProfile
+  FaSpotify,
+  FaUser,
+  FaInstagramSquare,
+  FaLink
 } from "react-icons/all";
 import "./main-elements.css"
 import avatar from "../../images/avatar.jpg"
@@ -41,8 +42,34 @@ function Main() {
                   rel="noreferrer"
                   className="SectionLink"
                 >
-                  <CgProfile/>
+                  <FaUser/>
                   <p className="SocialText">Portfolio</p>
+                </a>
+              </div>
+            </div>
+            <div className="SectionItemWrapper">
+              <div className="SectionItem">
+                <a
+                  href="https://github.com/ParzivalEugene"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="SectionLink"
+                >
+                  <FaGithub/>
+                  <p className="SocialText">GitHub</p>
+                </a>
+              </div>
+            </div>
+            <div className="SectionItemWrapper">
+              <div className="SectionItem">
+                <a
+                  href="https://open.spotify.com/user/x0ylhxxeb1yun9lhnfjl2pyln"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="SectionLink"
+                >
+                  <FaSpotify/>
+                  <p className="SocialText">Spotify</p>
                 </a>
               </div>
             </div>
@@ -67,21 +94,8 @@ function Main() {
                   rel="noreferrer"
                   className="SectionLink"
                 >
-                  <FaInstagram/>
+                  <FaInstagramSquare/>
                   <p className="SocialText">Instagram</p>
-                </a>
-              </div>
-            </div>
-            <div className="SectionItemWrapper">
-              <div className="SectionItem">
-                <a
-                  href="https://github.com/ParzivalEugene"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="SectionLink"
-                >
-                  <FaGithub/>
-                  <p className="SocialText">GitHub</p>
                 </a>
               </div>
             </div>
@@ -122,7 +136,7 @@ function Main() {
                   rel="noreferrer"
                   className="SectionLink"
                 >
-                  <CgWebsite/>
+                  <FaLink/>
                   <p className="SocialText">Website</p>
                 </a>
               </div>
