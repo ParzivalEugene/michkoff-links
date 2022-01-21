@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {isDesktop} from "react-device-detect";
+import Desktop from "./pages/Desktop";
+import Mobile from "./pages/Mobile";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  if (!isDesktop) {
+    return <Mobile/>
+  }
+  return <Desktop/>
 }
 
 export default App;
