@@ -23,4 +23,44 @@ body {
   background-color: $background-color;
   padding: 8rem 16rem;
   color: $primary-color;
+
+  @media screen and (max-width: 1520px) {
+    padding: 4rem 8rem;
+  }
+
+  @media screen and (max-width: 720px) {
+    padding: 4rem 2rem;
+  }
+}
+
+h1 {
+  font-size: 7.2rem;
+
+  @media screen and (max-width: 1520px){
+    font-size: 6.4rem;
+  }
+
+  @media screen and (max-width: 720px){
+    font-size: 4.8rem;
+  }
+}
+
+h2 {
+  font-size: 4.8rem;
+
+  @media screen and (max-width: 1520px){
+    font-size: 3.6rem;
+  }
+
+  @media screen and (max-width: 720px){
+    font-size: 3.2rem;
+  }
+}
+
+h3 {
+  font-size: 3.6rem;
+
+  @media screen and (max-width: 1520px){
+    font-size: 2.4rem;
+  }
 }

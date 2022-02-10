@@ -1,0 +1,27 @@
+@use "src/App";
+
+.link-card {
+  display: grid;
+  grid-template-columns: min-content auto;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+  padding: 2rem 3rem;
+
+  font-size: 3.2rem;
+  color: App.$secondary-color;
+  text-decoration: none;
+
+  transition: 0.3s all ease-in-out 0s;
+
+  &:hover {
+    color: App.$primary-color;
+    border-color: App.$primary-color;
+    box-shadow: rgba(App.$primary-color, .1) 0 0 5rem;
+  }
+
+  @media screen and (max-width: 1280px) {
+    font-size: 2.4rem;
+    padding: 1rem 2rem;
+  }
+}

@@ -1,13 +1,17 @@
 import './App.scss';
-import {isDesktop} from "react-device-detect";
-import Desktop from "./pages/Desktop";
-import Mobile from "./pages/Mobile";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import Main from "./pages/Main";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  if (!isDesktop) {
-    return <Mobile/>
-  }
-  return <Desktop/>
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Main} exact />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default App;

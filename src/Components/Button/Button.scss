@@ -1,0 +1,39 @@
+@use "src/App";
+
+.button {
+  display: flex;
+  align-items: baseline;
+  flex-direction: row;
+  gap: 1rem;
+  border: .1rem solid App.$secondary-color;
+  border-radius: 9rem;
+  padding: 2rem 3rem;
+  text-decoration: none;
+  font-size: 2.4rem;
+  color: App.$secondary-color;
+  transition: 0.3s all ease-in-out 0s;
+
+  &:hover {
+    border-color: App.$primary-color;
+    color: App.$primary-color;
+    box-shadow: rgba(App.$primary-color, .1) 0 0 5rem;
+  }
+
+  &:hover .button-icon {
+    opacity: 100;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  @media screen and (max-width: 1520px){
+    font-size: 1.8rem;
+  }
+}
+
+.button-icon {
+  color: inherit;
+  transition: 0.3s all ease-in-out 0s;
+  width: 0;
+  height: 1.6rem;
+  opacity: 0;
+}
