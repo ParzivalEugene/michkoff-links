@@ -25,11 +25,13 @@ const SocialCard = (props) => {
           target="_blank"
           rel="noreferrer"
         >
-          <img
-            className="social-icon"
-            src={props.img_src}
-            alt="Media Icon"
-          />
+          <div className="social-icon-container">
+            <img
+              className="social-icon"
+              src={props.img_src}
+              alt="Media Icon"
+            />
+          </div>
           <div className="social-container">
             {props.text}
           </div>

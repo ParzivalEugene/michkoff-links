@@ -6,6 +6,7 @@ import Mobile from "../screens/Mobile";
 const Main = () => {
   return (
     <>
+      {/*<Mobile/>*/}
       {!(isDesktop) ? <Mobile/> : <Desktop/>}
     </>
   );

@@ -1,12 +1,9 @@
 @use "src/App";
 
 .link-card {
-  display: grid;
-  grid-template-columns: min-content auto;
-  align-items: center;
-  justify-items: center;
-  gap: 2rem;
+  position: relative;
   padding: 2rem 3rem;
+  text-align: center;
 
   font-size: 3.2rem;
   color: App.$secondary-color;
@@ -23,5 +20,16 @@
   @media screen and (max-width: 1280px) {
     font-size: 2.4rem;
     padding: 1rem 2rem;
+  }
+}
+
+.link-icon {
+  position: absolute;
+  left: 3rem;
+  top: 2.5rem;
+
+  @media screen and (max-width: 1280px) {
+    left: 2rem;
+    top: 1.4rem;
   }
 }

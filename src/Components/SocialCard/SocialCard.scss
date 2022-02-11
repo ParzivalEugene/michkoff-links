@@ -1,6 +1,7 @@
 @use "../../App";
 
 .social-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,8 +21,9 @@
   }
 
   @media screen and (max-width: 1280px) {
-    flex-direction: row;
+    display: block;
     width: 100%;
+    align-self: stretch;
     gap: 0;
     padding: 1rem 2rem;
     justify-content: start;
@@ -34,4 +36,19 @@
 .social-container {
   text-align: center;
   width: 100%;
+}
+
+.social-icon-container {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 3rem;
+}
+
+.social-icon {
+  @media screen and (max-width: 1280px) {
+    width: 2.4rem;
+    height: min-content;
+  }
 }

@@ -10,7 +10,7 @@ const LinkCard = (props) => {
       target="_blank"
       rel="noreferrer"
     >
-      <HiOutlineExternalLink/>
+      <HiOutlineExternalLink className="link-icon"/>
       {props.text}
     </a>
   );
