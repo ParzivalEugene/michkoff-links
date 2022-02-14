@@ -1,0 +1,121 @@
+@use "src/App";
+
+.social-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @media screen and (max-width: 420px) {
+    gap: 1.5rem;
+  }
+
+  h2 {
+    align-self: center;
+  }
+}
+
+.social-cards-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3rem;
+
+  @media screen and (max-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 420px) {
+    gap: 1.5rem;
+  }
+}
+
+.card {
+  background: App.$background-gradient;
+  border: 1px solid App.$tertiary-color;
+  box-sizing: border-box;
+  border-radius: 3.2rem;
+}
+
+.bot-donation-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 3rem;
+
+  @media screen and (max-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  @media screen and (max-width: 420px) {
+    gap: 3rem;
+  }
+}
+
+.bot-container,
+.donation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 3rem;
+
+  @media screen and (max-width: 420px) {
+    gap: 1.5rem;
+  }
+
+  h2 {
+    align-self: center;
+  }
+}
+
+.bot-cards-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  @media screen and (max-width: 420px) {
+    gap: 1.5rem;
+  }
+}
+
+.donation-card {
+  height: 100%;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: auto max-content;
+  align-items: center;
+  gap: 3rem;
+
+  @media screen and (max-width: 580px) {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+}
+
+.donation-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  p {
+    font-size: 1.8rem;
+    color: App.$secondary-color;
+  }
+}
+
+.donation-link-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+
+  img {
+    width: 9.6rem;
+  }
+
+  a {
+    font-size: 2.4rem;
+  }
+}

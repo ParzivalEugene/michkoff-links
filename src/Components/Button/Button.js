@@ -1,34 +1,25 @@
-import React from 'react';
-import {BsBoxArrowInUpRight} from "react-icons/bs";
+import React from 'react'
 import "./Button.scss"
-import {Link} from "react-router-dom";
+import {Link} from "react-router-dom"
 
-const Button = (props) => {
+const Button = ({internal, link, text}) => {
   return (
     <>
-      {props.internal ? (
+      {internal ? (
         <Link
-          to={props.href}
+          to={link}
           className="button"
         >
-          {props.text}
-          <span
-            className="button-icon"
-          >
-        <BsBoxArrowInUpRight/>
-      </span>
+          {text}
         </Link>
       ) : (
         <a
-          href={props.href}
+          href={link}
+          target="_blank"
+          rel="noreferrer"
           className="button"
         >
-          {props.text}
-          <span
-            className="button-icon"
-          >
-        <BsBoxArrowInUpRight/>
-      </span>
+          {text}
         </a>
       )}
     </>

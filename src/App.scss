@@ -21,46 +21,63 @@ html {
 body {
   overflow-x: hidden;
   background-color: $background-color;
-  padding: 8rem 16rem;
   color: $primary-color;
-
-  @media screen and (max-width: 1520px) {
-    padding: 4rem 8rem;
-  }
-
-  @media screen and (max-width: 720px) {
-    padding: 4rem 2rem;
-  }
 }
 
 h1 {
   font-size: 7.2rem;
 
-  @media screen and (max-width: 1520px){
-    font-size: 6.4rem;
+  @media screen and (max-width: 580px) {
+    font-size: 5.6rem;
   }
 
-  @media screen and (max-width: 720px){
-    font-size: 4.8rem;
+  @media screen and (max-width: 420px) {
+    font-size: 4rem;
   }
 }
 
 h2 {
   font-size: 4.8rem;
 
-  @media screen and (max-width: 1520px){
-    font-size: 3.6rem;
+  @media screen and (max-width: 580px) {
+    font-size: 3.2rem;
   }
 
-  @media screen and (max-width: 720px){
-    font-size: 3.2rem;
+  @media screen and (max-width: 420px) {
+    font-size: 2.4rem;
   }
 }
 
 h3 {
-  font-size: 3.6rem;
+  font-size: 3.2rem;
 
-  @media screen and (max-width: 1520px){
+  @media screen and (max-width: 580px) {
     font-size: 2.4rem;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+
+  @media screen and (max-width: 1280px) {
+    max-width: 72rem;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  margin: 3rem;
+  gap: 6rem;
+
+  @media screen and (max-width: 420px) {
+    margin: 0 3rem;
+    gap: 3rem;
   }
 }

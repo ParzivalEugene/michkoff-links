@@ -2,16 +2,18 @@ import React from 'react';
 import {HiOutlineExternalLink} from "react-icons/hi";
 import "./LinkCard.scss"
 
-const LinkCard = (props) => {
+const LinkCard = ({text, link}) => {
   return (
     <a
       className="link-card card"
-      href={props.link}
+      href={link}
       target="_blank"
       rel="noreferrer"
     >
       <HiOutlineExternalLink className="link-icon"/>
-      {props.text}
+      <div className="link-card-text-container">
+        {text}
+      </div>
     </a>
   );
 };

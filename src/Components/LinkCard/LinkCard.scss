@@ -2,34 +2,41 @@
 
 .link-card {
   position: relative;
-  padding: 2rem 3rem;
-  text-align: center;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-size: 3.2rem;
   color: App.$secondary-color;
   text-decoration: none;
-
   transition: 0.3s all ease-in-out 0s;
+  height: 100%;
+  padding: 2rem;
+
+  @media screen and (max-width: 580px) {
+    font-size: 2.4rem;
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 1.6rem;
+  }
 
   &:hover {
     color: App.$primary-color;
     border-color: App.$primary-color;
     box-shadow: rgba(App.$primary-color, .1) 0 0 5rem;
   }
-
-  @media screen and (max-width: 1280px) {
-    font-size: 2.4rem;
-    padding: 1rem 2rem;
-  }
 }
 
 .link-icon {
   position: absolute;
-  left: 3rem;
-  top: 2.5rem;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-  @media screen and (max-width: 1280px) {
-    left: 2rem;
-    top: 1.4rem;
-  }
+.link-card-text-container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

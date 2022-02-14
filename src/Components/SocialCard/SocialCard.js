@@ -1,44 +1,43 @@
 import React from 'react';
 import "./SocialCard.scss"
+import "../../pages/Components.scss"
+import {DisplaySizes} from "../../data/data";
+import useWindowDimensions from "../WindowDimension";
 
-const SocialCard = (props) => {
-  return (
-    <>
-      {props.isDesktop ? (
-          <a
-            className={props.grid_id + " social-card card"}
-            href={props.link}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              className="social-icon"
-              src={props.img_src}
-              alt="Media Icon"
-            />
-            {props.text}
-          </a>
-        ) : (
-        <a
-          className={props.grid_id + " social-card card"}
-          href={props.link}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="social-icon-container">
-            <img
-              className="social-icon"
-              src={props.img_src}
-              alt="Media Icon"
-            />
+const SocialCard = ({text, img_src, link}) => {
+  const {height, width} = useWindowDimensions();
+
+  if (width > DisplaySizes.desktop) {
+    return (
+      <a
+        className="card social-card"
+        href={link}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <div>
+          <img src={img_src} alt="SOCIAL_IMAGE"/>
+          {text}
+        </div>
+      </a>
+    );
+  } else {
+    return (
+      <a
+        className="card social-card"
+        href={link}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <img src={img_src} alt="SOCIAL_IMAGE" className="mobile-icon"/>
+        <div>
+          <div className="text-container">
+            {text}
           </div>
-          <div className="social-container">
-            {props.text}
-          </div>
-        </a>
-        )}
-    </>
-  );
+        </div>
+      </a>
+    );
+  }
 };
 
 export default SocialCard;
