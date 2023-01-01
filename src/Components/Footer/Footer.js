@@ -14,7 +14,7 @@ const Footer = () => {
         ParzivalEugene
       </a>
       </p>
-      <h1>© 2022 Michkov Eugene. All Rights Reserved.</h1>
+      <h1>© 2023 Michkov Eugene. All Rights Reserved.</h1>
     </footer>
   );
 };
