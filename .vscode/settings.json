@@ -1,0 +1,9 @@
+{
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "discord.lowerDetailsEditing": "Michkoff Links v3.0",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  }
+}
