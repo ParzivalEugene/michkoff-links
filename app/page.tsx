@@ -41,9 +41,14 @@ const Tile: FC<TileProps> = ({ image, title, link }) => {
   return (
     <a
       href={link}
-      className="flex aspect-square flex-col items-center justify-between rounded-3xl border-2 border-transparent border-zinc-700 bg-neutral-800/30 p-12 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:border-slate-400 hover:shadow-2xl hover:shadow-slate-500"
+      className="relative flex flex-col rounded-lg border-2 border-transparent border-zinc-700 bg-zinc-950 p-4 transition-all
+      duration-300 ease-in-out hover:-translate-y-2 hover:border-slate-400 hover:shadow-2xl hover:shadow-slate-500 lg:aspect-square lg:items-center lg:justify-between lg:rounded-3xl lg:p-12"
     >
-      <img src={image} alt={title} className="w-2/3" />
+      <img
+        src={image}
+        alt={title}
+        className="absolute top-1/2 w-8 -translate-y-1/2 lg:relative lg:top-0 lg:w-2/3 lg:transform-none"
+      />
       <p className="text-center text-xl font-semibold">{title}</p>
     </a>
   );
@@ -51,20 +56,24 @@ const Tile: FC<TileProps> = ({ image, title, link }) => {
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 px-48">
-      <nav className="flex w-full items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between p-6 pb-8 lg:p-24 lg:px-48">
+      <nav className="flex w-full flex-col items-center justify-between gap-8 lg:flex-row lg:gap-0">
         <h1 className="text-4xl font-bold">Michkov Eugene | Links</h1>
         <a
           href="https://michkoff.com"
-          className="group rounded-lg border-2 border-transparent border-zinc-700 bg-neutral-800/30 p-4 text-xl transition-all duration-300 ease-in-out hover:border-slate-400 hover:shadow-lg hover:shadow-slate-500"
+          className="group w-full rounded-lg border-transparent  bg-gradient-to-r 
+          from-indigo-600 to-fuchsia-600 p-[2px] text-center text-xl transition-colors duration-300 ease-in-out 
+          hover:from-indigo-600 hover:to-fuchsia-600 lg:w-auto lg:from-indigo-600/60 lg:to-fuchsia-600/60"
         >
-          Check out my Portfolio{" "}
-          <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-            -&gt;
-          </span>
+          <div className="rounded-lg bg-zinc-950 p-4">
+            Check out my Portfolio{" "}
+            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+              -&gt;
+            </span>
+          </div>
         </a>
       </nav>
-      <section className="grid w-full grid-cols-5 gap-10 px-16">
+      <section className="flex w-full flex-col gap-4 lg:grid lg:grid-cols-5 lg:gap-10 lg:px-16">
         {data.map((item, i) => (
           <Tile
             key={i}
@@ -74,8 +83,8 @@ export default function Home() {
           />
         ))}
       </section>
-      <footer className="flex w-full items-end justify-between">
-        <p className="group flex items-baseline gap-2 rounded-lg border-2 border-transparent border-zinc-700 bg-neutral-800/30 p-6 text-center text-xl">
+      <footer className="flex w-full flex-col items-center justify-between gap-2 lg:flex-row lg:items-end lg:gap-0">
+        <p className="group flex items-baseline gap-2 rounded-lg text-center text-xl lg:border-2 lg:border-transparent lg:border-zinc-700 lg:bg-zinc-950 lg:p-6">
           Coded with{" "}
           <img src={"/next.svg"} alt="Next js" className="h-3.5 invert" />
         </p>
