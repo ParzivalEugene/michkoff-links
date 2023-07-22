@@ -35,18 +35,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={raleway.className}>
-        <noscript>
-          <div>
-            <img
-              src="https://mc.yandex.ru/watch/94407219"
-              style="position:absolute; left:-9999px;"
-              alt=""
-            />
-          </div>
-        </noscript>
-        {children}
-      </body>
+      <body className={raleway.className}>{children}</body>
     </html>
   );
 }
