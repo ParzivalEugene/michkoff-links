@@ -60,7 +60,7 @@ export default function Home() {
       <nav className="flex w-full flex-col items-center justify-between gap-8 lg:flex-row lg:gap-0">
         <h1 className="text-4xl font-bold">Michkov Eugene | Links</h1>
         <a
-          href="https://michkoff.com"
+          href="https://portfolio.michkoff.com"
           className="group w-full rounded-lg border-transparent  bg-gradient-to-r 
           from-indigo-600 to-fuchsia-600 p-[2px] text-center text-xl transition-colors duration-300 ease-in-out 
           hover:from-indigo-600 hover:to-fuchsia-600 lg:w-auto lg:from-indigo-600/60 lg:to-fuchsia-600/60"
