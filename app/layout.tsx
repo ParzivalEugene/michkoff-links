@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <Script
           id="metrica"
@@ -35,7 +35,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={raleway.className}>{children}</body>
+      <body className={raleway.className + " bg-black"}>{children}</body>
     </html>
   );
 }
