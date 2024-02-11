@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -7,7 +8,7 @@ import {
 } from "./ui/card";
 
 interface SocialCardProps {
-  icon: JSX.Element;
+  icon: string;
   description: string[];
   title: string;
 }
@@ -15,10 +16,14 @@ interface SocialCardProps {
 export const SocialCard = ({ icon, description, title }: SocialCardProps) => {
   return (
     <Card className="rounded-3xl relative">
-      <CardHeader className="pb-2">
-        <Card className="w-[40px] h-[40px] rounded-xl flex items-center justify-center">
-          {icon}
-        </Card>
+      <CardHeader className="pb-3">
+        <Image
+          src={icon}
+          alt="icon"
+          width={40}
+          height={40}
+          className="w-[40px] h-[40px] rounded-xl"
+        />
       </CardHeader>
       <CardContent className="pb-2">
         {description.map((text, key) => (
@@ -29,3 +34,5 @@ export const SocialCard = ({ icon, description, title }: SocialCardProps) => {
     </Card>
   );
 };
+
+// https://open.spotify.com/playlist/52ujyIugSAiTRwaQFnwKhL?si=991a0a38c32142e8

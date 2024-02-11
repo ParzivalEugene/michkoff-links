@@ -1,7 +1,7 @@
-import { ModeToggle } from "@/components/mode-switch";
+import { AboutCard } from "@/components/about-card";
 import { PortfolioCard } from "@/components/portfolio-card";
 import { SocialCard } from "@/components/social-card";
-import { Card, CardFooter } from "@/components/ui/card";
+import { SpotifyCard } from "@/components/spotify-card";
 
 import { socialCardsData } from "@/data/text";
 
@@ -12,14 +12,10 @@ export default function Home() {
         <SocialCard {...socialCardsData.github} />
         <SocialCard {...socialCardsData.gitlab} />
         <SocialCard {...socialCardsData.telegram} />
-        <Card className="row-span-2">
-          <CardFooter>4</CardFooter>
-        </Card>
+        <AboutCard />
         <PortfolioCard />
         <SocialCard {...socialCardsData.leetcode} />
-        <Card className="col-span-2">
-          <CardFooter>7</CardFooter>
-        </Card>
+        <SpotifyCard />
       </div>
       {/* <ModeToggle /> */}
     </div>
