@@ -1,9 +1,12 @@
 {
-  "typescript.tsdk": "node_modules\\typescript\\lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "discord.lowerDetailsEditing": "Michkoff Links v3.0",
+  "discord.lowerDetailsEditing": "Michkoff | Links",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
-  }
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "prettier": "explicit"
+  },
+  "editor.tabSize": 2,
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }
