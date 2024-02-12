@@ -1,22 +1,34 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-} from "./ui/card";
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
+import { CardDescription, CardFooter, CardHeader } from "./ui/card";
 
 interface SocialCardProps {
   icon: string;
   description: string[];
   title: string;
+  link: string;
+  className?: string;
 }
 
-export const SocialCard = ({ icon, description, title }: SocialCardProps) => {
+export const SocialCard = ({
+  link,
+  icon,
+  description,
+  title,
+  className,
+}: SocialCardProps) => {
   return (
-    <Card className="rounded-3xl relative">
-      <CardHeader className="pb-3">
+    <Link
+      href={link}
+      className={cn(
+        buttonVariants({ variant: "outline" }),
+        "rounded-3xl relative flex flex-col h-auto items-start justify-start p-0 whitespace-normal transition-all ease duration-300 hover:shadow-2xl min-h-[156px]",
+        className
+      )}
+    >
+      <CardHeader className="p-4 lg:p-6 lg:pb-3">
         <Image
           src={icon}
           alt="icon"
@@ -25,14 +37,14 @@ export const SocialCard = ({ icon, description, title }: SocialCardProps) => {
           className="w-[40px] h-[40px] rounded-xl"
         />
       </CardHeader>
-      <CardContent className="pb-2">
+      <div className="px-4 lg:pb-2 lg:px-6 flex flex-col items-start">
         {description.map((text, key) => (
-          <CardDescription key={key}>{text}</CardDescription>
+          <CardDescription key={key} className="w-fit text-start">
+            {text}
+          </CardDescription>
         ))}
-      </CardContent>
-      <CardFooter className="absolute bottom-0">{title}</CardFooter>
-    </Card>
+      </div>
+      <CardFooter className="absolute bottom-0 p-4 lg:p-6">{title}</CardFooter>
+    </Link>
   );
 };
-
-// https://open.spotify.com/playlist/52ujyIugSAiTRwaQFnwKhL?si=991a0a38c32142e8

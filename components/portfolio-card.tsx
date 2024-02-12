@@ -1,5 +1,8 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "./ui/badge";
+import { buttonVariants } from "./ui/button";
 import {
   Card,
   CardContent,
@@ -11,8 +14,14 @@ import {
 
 export const PortfolioCard = () => {
   return (
-    <Card className="rounded-3xl relative row-span-2 col-span-2">
-      <CardHeader>
+    <Link
+      href={"https://portfolio.michkoff.com"}
+      className={cn(
+        buttonVariants({ variant: "outline" }),
+        "h-auto items-start justify-start whitespace-normal text-start flex flex-col rounded-3xl relative portfolio p-0 hover:bg-[#0E0F16] hover:shadow-2xl hover:shadow-[#677EEB]/40 transition-all ease duration-300"
+      )}
+    >
+      <CardHeader className="p-4 lg:p-6">
         <Card className="w-[40px] h-[40px] rounded-xl">
           <svg
             width="16"
@@ -31,14 +40,22 @@ export const PortfolioCard = () => {
           </svg>
         </Card>
       </CardHeader>
-      <CardContent className="pb-2">
-        <CardTitle>Michkov Eugene | Portfolio</CardTitle>
+      <CardContent className="px-4 lg:px-6 pb-2">
+        <CardTitle className="text-xl lg:text-2xl ">
+          Michkov Eugene | Portfolio
+        </CardTitle>
         <CardDescription>portfolio.michkoff.com</CardDescription>
       </CardContent>
-      <CardFooter className="absolute bottom-0 flex-col items-start gap-6">
+      <CardFooter className="absolute bottom-0 flex-col items-start gap-4 lg:gap-6 p-4 lg:p-6">
         <Badge>Version v2.0 coming soon! 🎉 </Badge>
-        <Image src="logo.svg" alt="EM" width={1088} height={500} />
+        <Image
+          src="logo.svg"
+          alt="EM"
+          width={1088}
+          height={500}
+          className="dark:invert-0 invert"
+        />
       </CardFooter>
-    </Card>
+    </Link>
   );
 };
