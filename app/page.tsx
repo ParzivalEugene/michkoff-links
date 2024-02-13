@@ -5,18 +5,6 @@ import { SocialCard } from "@/components/social-card";
 import { SpotifyCard } from "@/components/spotify-card";
 import { Metadata } from "next";
 
-const metadata: Metadata = {
-  title: "Michkoff | Links",
-  description: "My personal links",
-  icons: [
-    {
-      rel: "icon",
-      sizes: "256x256",
-      url: "/e_logo.svg",
-    },
-  ],
-};
-
 export default async function Home() {
   const socialCardsData = await getSocialInfo();
 
