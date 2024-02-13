@@ -38,8 +38,8 @@ export const AboutCard = () => {
                   <Image
                     src={value.icon}
                     alt="icon"
-                    width={60}
-                    height={60}
+                    width={600}
+                    height={600}
                     className="rounded-xl cursor-pointer"
                   />
                 </TooltipTrigger>

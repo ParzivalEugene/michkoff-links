@@ -16,7 +16,7 @@ export const SpotifyCard = async () => {
       )}
     >
       <div className="flex flex-col justify-between h-full">
-        <Image src="/logos/spotify.png" alt="spotify" width={40} height={40} />
+        <Image src="/logos/spotify.png" alt="spotify" width={400} height={400} className="h-[40px] w-[40px]"/>
         <div>
           <h2 className="text-md lg:text-lg">{title}</h2>
           <CardDescription>{songs} songs</CardDescription>

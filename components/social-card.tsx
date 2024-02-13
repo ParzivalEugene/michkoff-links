@@ -32,8 +32,8 @@ export const SocialCard = ({
         <Image
           src={icon}
           alt="icon"
-          width={40}
-          height={40}
+          width={400}
+          height={400}
           className="w-[40px] h-[40px] rounded-xl"
         />
       </CardHeader>
