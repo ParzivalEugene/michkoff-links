@@ -53,7 +53,6 @@ export const PortfolioCard = () => {
           alt="EM"
           width={1088}
           height={500}
-          className="dark:invert-0 invert"
         />
       </CardFooter>
     </Link>

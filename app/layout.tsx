@@ -1,4 +1,3 @@
-"use client";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -32,14 +31,7 @@ export default function RootLayout({
       />
       <meta property="twitter:image" content="/preview.png" />
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
           {children}
-        </ThemeProvider>
       </body>
     </html>
   );
