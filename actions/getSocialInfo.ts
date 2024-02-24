@@ -30,6 +30,9 @@ const getGithubInfo = async (): Promise<GetGithubInfo | undefined> => {
     headers: {
       Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     },
+    next: {
+      revalidate: 60,
+    },
   });
 
   if (res.status === 200) {
@@ -42,7 +45,7 @@ const getGithubInfo = async (): Promise<GetGithubInfo | undefined> => {
     };
   }
   return {
-    contirbutions: 253,
+    contirbutions: 222,
     repositories: 38,
   };
 };
@@ -52,6 +55,9 @@ const getLeetcodeInfo = async (): Promise<GetLeetcodeInfo | undefined> => {
     "https://leetcode-stats-api.herokuapp.com/ParzivalEugene",
     {
       method: "GET",
+      next: {
+        revalidate: 60,
+      },
     }
   );
 

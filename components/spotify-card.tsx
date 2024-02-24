@@ -27,7 +27,8 @@ export const SpotifyCard = async () => {
         alt="cover"
         width={132}
         height={132}
-        className="rounded-xl"
+        style={{ objectFit: "cover" }}
+        className="rounded-xl aspect-square"
       />
     </Link>
   );
