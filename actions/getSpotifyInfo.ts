@@ -1,5 +1,8 @@
 "use server";
 
+import { env } from "@/env";
+import { getSpotifyLink } from "./getMongoInfo";
+
 interface GetSpotifyInfo {
   title: string;
   songs: number;
@@ -9,8 +12,8 @@ interface GetSpotifyInfo {
 const getToken = async (): Promise<string | undefined> => {
   const data = new URLSearchParams();
   data.append("grant_type", "client_credentials");
-  data.append("client_id", process.env.SPOTIFY_CLIENT_ID || "");
-  data.append("client_secret", process.env.SPOTIFY_CLIENT_SECRET || "");
+  data.append("client_id", env.SPOTIFY_CLIENT_ID);
+  data.append("client_secret", env.SPOTIFY_CLIENT_SECRET);
 
   const res = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
@@ -26,15 +29,16 @@ const getToken = async (): Promise<string | undefined> => {
 };
 
 export const getSpotifyInfo = async (): Promise<GetSpotifyInfo | undefined> => {
-  const token = await getToken();
-  const playlistId = "52ujyIugSAiTRwaQFnwKhL";
   const defaultValue = {
-    title: "To ride Porsche 992",
+    title: "To drive Porsche 992",
     songs: 53,
     cover:
       "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000bebb07b9c8e2c40dcb8fe14174c6",
   };
-  if (!token) return defaultValue;
+  const token = await getToken();
+  const spotifyLink = await getSpotifyLink();
+  const playlistId = spotifyLink?.split("/")[4].split("?")[0];
+  if (!token || !spotifyLink) return defaultValue;
 
   const playlistRes = await fetch(
     `https://api.spotify.com/v1/playlists/${playlistId}?fields=name,images`,
@@ -62,7 +66,8 @@ export const getSpotifyInfo = async (): Promise<GetSpotifyInfo | undefined> => {
     }
   );
 
-  if (playlistRes.status !== 200 || countRes.status !== 200) return defaultValue;
+  if (playlistRes.status !== 200 || countRes.status !== 200)
+    return defaultValue;
 
   const playlistResponse = await playlistRes.json();
   const countResponse = await countRes.json();

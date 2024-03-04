@@ -1,5 +1,7 @@
 "use server";
 
+import { env } from "@/env";
+
 interface GetGithubInfo {
   contirbutions: number;
   repositories: number;
@@ -28,7 +30,7 @@ const getGithubInfo = async (): Promise<GetGithubInfo | undefined> => {
         }`,
     }),
     headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
     },
     next: {
       revalidate: 60,
