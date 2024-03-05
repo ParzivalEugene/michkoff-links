@@ -5,11 +5,11 @@ import Link from "next/link";
 import { Badge, badgeVariants } from "./ui/badge";
 import { CardDescription } from "./ui/card";
 export const SpotifyCard = async () => {
-  const { title, cover, songs } = (await getSpotifyInfo()) || {};
+  const { link, title, cover, songs } = (await getSpotifyInfo()) || {};
 
   return (
     <Link
-      href={"https://open.spotify.com/playlist/52ujyIugSAiTRwaQFnwKhL"}
+      href={link || ""}
       className="border text-xs font-semibold text-foreground flex whitespace-normal text-start spotify rounded-3xl p-4 lg:p-6 flex-row h-auto items-start justify-between hover:bg-[#0A0F0D] hover:shadow-2xl hover:shadow-[#1DB954]/40 transition-all ease duration-300"
     >
       <div className="flex flex-col justify-between h-full">

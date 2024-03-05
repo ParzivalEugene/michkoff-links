@@ -7,6 +7,7 @@ interface GetSpotifyInfo {
   title: string;
   songs: number;
   cover: string;
+  link: string;
 }
 
 const getToken = async (): Promise<string | undefined> => {
@@ -34,6 +35,7 @@ export const getSpotifyInfo = async (): Promise<GetSpotifyInfo | undefined> => {
     songs: 53,
     cover:
       "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000bebb07b9c8e2c40dcb8fe14174c6",
+    link: "https://open.spotify.com/playlist/52ujyIugSAiTRwaQFnwKhL",
   };
   const token = await getToken();
   const spotifyLink = await getSpotifyLink();
@@ -76,5 +78,6 @@ export const getSpotifyInfo = async (): Promise<GetSpotifyInfo | undefined> => {
     title: playlistResponse.name,
     songs: countResponse.total,
     cover: playlistResponse.images[0].url,
+    link: `https://open.spotify.com/playlist/${playlistId}`,
   };
 };
