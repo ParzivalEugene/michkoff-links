@@ -15,7 +15,7 @@ import {
 export const PortfolioCard = () => {
   return (
     <Link
-      href={"https://portfolio.michkoff.com"}
+      href={"https://michkoff.com"}
       className={cn(
         buttonVariants({ variant: "outline" }),
         "h-auto items-start justify-start whitespace-normal text-start flex flex-col rounded-3xl relative portfolio p-0 hover:bg-[#0E0F16] hover:shadow-2xl hover:shadow-[#677EEB]/40 transition-all ease duration-300"
@@ -44,10 +44,10 @@ export const PortfolioCard = () => {
         <CardTitle className="text-xl lg:text-2xl ">
           Michkov Eugene | Portfolio
         </CardTitle>
-        <CardDescription>portfolio.michkoff.com</CardDescription>
+        <CardDescription>michkoff.com</CardDescription>
       </CardContent>
       <CardFooter className="absolute bottom-0 flex-col items-start gap-4 lg:gap-6 p-4 lg:p-6">
-        <Badge>Version v2.0 coming soon! 🎉 </Badge>
+        <Badge>Version v2.0 is out! 🎉 </Badge>
         <Image
           src="logo.svg"
           alt="EM"

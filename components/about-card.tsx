@@ -26,7 +26,7 @@ export const AboutCard = () => {
           className="rounded-xl"
         />
         <Badge className="text-xs px-0 flex justify-center py-1 rounded-xl">
-          Frontend developer
+          Fullstack developer
         </Badge>
       </CardHeader>
       <CardContent className="absolute bottom-0 p-4 lg:p-6">
