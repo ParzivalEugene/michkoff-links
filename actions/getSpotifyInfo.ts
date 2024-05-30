@@ -3,7 +3,7 @@
 import { env } from "@/env";
 import { getSpotifyLink } from "./getMongoInfo";
 
-interface GetSpotifyInfo {
+export interface GetSpotifyInfo {
   title: string;
   songs: number;
   cover: string;
@@ -29,7 +29,7 @@ const getToken = async (): Promise<string | undefined> => {
   if (res.status === 200) return (await res.json()).access_token;
 };
 
-export const getSpotifyInfo = async (): Promise<GetSpotifyInfo | undefined> => {
+export const getSpotifyInfo = async (): Promise<GetSpotifyInfo> => {
   const defaultValue = {
     title: "To drive Porsche 992",
     songs: 53,

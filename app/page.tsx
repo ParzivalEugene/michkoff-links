@@ -2,7 +2,8 @@ import { getSocialInfo } from "@/actions/getSocialInfo";
 import { AboutCard } from "@/components/about-card";
 import { PortfolioCard } from "@/components/portfolio-card";
 import { SocialCard } from "@/components/social-card";
-import { SpotifyCard } from "@/components/spotify-card";
+import { SpotifyCard, SpotifyCardSkeleton } from "@/components/spotify-card";
+import { Suspense } from "react";
 
 export default async function Home() {
   const socialCardsData = await getSocialInfo();
@@ -31,7 +32,9 @@ export default async function Home() {
           {...socialCardsData.leetcode}
           className="hover:bg-[#15110D] hover:shadow-[#EBA340]/40 leetcode"
         />
-        <SpotifyCard />
+        <Suspense fallback={<SpotifyCardSkeleton />}>
+          <SpotifyCard />
+        </Suspense>
       </div>
     </div>
   );

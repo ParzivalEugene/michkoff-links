@@ -4,9 +4,11 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import FacePic from "@/public/eblo.jpg";
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader } from "./ui/card";
+
 const data = [
   { icon: "/logos/t3.png", link: "T3 stack" },
   { icon: "/logos/vercel.png", link: "Vercel" },
@@ -19,11 +21,10 @@ export const AboutCard = () => {
     <Card className="rounded-3xl about relative">
       <CardHeader className="gap-2 lg:gap-8 p-4 lg:p-6">
         <Image
-          src="/eblo.jpg"
+          src={FacePic}
           alt="Eugene"
-          width={854}
-          height={854}
           className="rounded-xl"
+          placeholder="blur"
         />
         <Badge className="text-xs px-0 flex justify-center py-1 rounded-xl">
           Fullstack developer
