@@ -7,6 +7,8 @@ import GitlabIcon from "@/public/logos/gitlab.png";
 import LeetcodeIcon from "@/public/logos/leetcode.png";
 import TelegramIcon from "@/public/logos/telegram.png";
 import { Suspense } from "react";
+import { FileText } from "lucide-react";
+import { ResumeCard } from "@/components/resume-card";
 
 export default async function Home() {
   return (
@@ -23,13 +25,7 @@ export default async function Home() {
           title="ParzivalEugene"
           className="hover:bg-zinc-900/60 hover:shadow-zinc-500/40 github"
         />
-        <SocialCard
-          link="https://gitlab.com/ParzivalEugene"
-          icon={GitlabIcon}
-          description={["Work account"]}
-          title="ParzivalEugene"
-          className="hover:bg-[#140C0C] hover:shadow-[#E24329]/40 gitlab"
-        />
+        <ResumeCard />
         <SocialCard
           link="https://t.me/parzival_eugene"
           icon={TelegramIcon}
