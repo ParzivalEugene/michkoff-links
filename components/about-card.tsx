@@ -5,15 +5,19 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import FacePic from "@/public/eblo.jpg";
+import PrismaIcon from "@/public/logos/prisma.png";
+import T3Icon from "@/public/logos/t3.png";
+import TSIcon from "@/public/logos/ts.png";
+import VercelIcon from "@/public/logos/vercel.png";
 import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { Card, CardContent, CardHeader } from "./ui/card";
 
 const data = [
-  { icon: "/logos/t3.png", link: "T3 stack" },
-  { icon: "/logos/vercel.png", link: "Vercel" },
-  { icon: "/logos/prisma.png", link: "Prisma" },
-  { icon: "/logos/ts.png", link: "TypeScript" },
+  { icon: T3Icon, link: "T3 stack" },
+  { icon: VercelIcon, link: "Vercel" },
+  { icon: PrismaIcon, link: "Prisma" },
+  { icon: TSIcon, link: "TypeScript" },
 ];
 
 export const AboutCard = () => {

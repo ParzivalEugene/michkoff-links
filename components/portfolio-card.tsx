@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Logo from "@/public/logo.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "./ui/badge";
@@ -48,12 +49,7 @@ export const PortfolioCard = () => {
       </CardContent>
       <CardFooter className="absolute bottom-0 flex-col items-start gap-4 lg:gap-6 p-4 lg:p-6">
         <Badge>Version v2.0 is out! 🎉 </Badge>
-        <Image
-          src="logo.svg"
-          alt="EM"
-          width={1088}
-          height={500}
-        />
+        <Image src={Logo} alt="EM" />
       </CardFooter>
     </Link>
   );
