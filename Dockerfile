@@ -18,12 +18,14 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN \
-  if [ -f yarn.lock ]; then yarn run build; \
-  elif [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+RUN --mount=type=secret,id=SPOTIFY_CLIENT_ID \
+  --mount=type=secret,id=SPOTIFY_CLIENT_SECRET \
+  --mount=type=secret,id=GH_TOKEN \
+  export SPOTIFY_CLIENT_ID=$(cat /run/secrets/SPOTIFY_CLIENT_ID) &&\
+  export SPOTIFY_CLIENT_SECRET=$(cat /run/secrets/SPOTIFY_CLIENT_ID) &&\
+  export GH_TOKEN=$(cat /run/secrets/SPOTIFY_CLIENT_ID)
+
+RUN corepack enable pnpm && pnpm run build
 
 FROM base AS runner
 WORKDIR /app
