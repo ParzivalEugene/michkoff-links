@@ -54,4 +54,4 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
