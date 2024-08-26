@@ -2,12 +2,12 @@
 
 import { env } from "@/env";
 
-interface GetGithubInfo {
+export interface GetGithubInfo {
   contirbutions: number;
   repositories: number;
 }
 
-interface GetLeetcodeInfo {
+export interface GetLeetcodeInfo {
   solved: number;
   rank: number;
 }

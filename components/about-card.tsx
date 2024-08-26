@@ -24,12 +24,7 @@ export const AboutCard = () => {
   return (
     <Card className="rounded-3xl about relative">
       <CardHeader className="gap-2 lg:gap-8 p-4 lg:p-6">
-        <Image
-          src={FacePic}
-          alt="Eugene"
-          className="rounded-xl"
-          placeholder="blur"
-        />
+        <Image src={FacePic} alt="Eugene" className="rounded-xl" />
         <Badge className="text-xs px-0 flex justify-center py-1 rounded-xl">
           Fullstack developer
         </Badge>

@@ -1,16 +1,22 @@
+import {
+  GetGithubInfo,
+  getGithubInfo,
+  GetLeetcodeInfo,
+  getLeetcodeInfo,
+} from "@/actions/getSocialInfo";
 import { AboutCard } from "@/components/about-card";
 import { PortfolioCard } from "@/components/portfolio-card";
+import { ResumeCard } from "@/components/resume-card";
 import { SocialCard } from "@/components/social-card";
-import { SpotifyCard, SpotifyCardSkeleton } from "@/components/spotify-card";
+import { SpotifyCard } from "@/components/spotify-card";
 import GithubIcon from "@/public/logos/github.png";
-import GitlabIcon from "@/public/logos/gitlab.png";
 import LeetcodeIcon from "@/public/logos/leetcode.png";
 import TelegramIcon from "@/public/logos/telegram.png";
-import { Suspense } from "react";
-import { FileText } from "lucide-react";
-import { ResumeCard } from "@/components/resume-card";
 
 export default async function Home() {
+  const githubDescription = (await getGithubInfo()) as GetGithubInfo;
+  const leetcodeDescription = (await getLeetcodeInfo()) as GetLeetcodeInfo;
+
   return (
     <div className="mx-auto w-fit py-12 lg:py-16 flex flex-col items-center">
       <h1 className="text-3xl font-bold leading-none mb-12 text-center lg:text-4xl lg:mb-16 xl:text-6xl">
@@ -20,8 +26,10 @@ export default async function Home() {
         <SocialCard
           link="https://github.com/ParzivalEugene"
           icon={GithubIcon}
-          descriptionUrl="info/get-github-info"
-          items={2}
+          description={[
+            `${githubDescription.contirbutions} contributions`,
+            `${githubDescription.repositories} repositories`,
+          ]}
           title="ParzivalEugene"
           className="hover:bg-zinc-900/60 hover:shadow-zinc-500/40 github"
         />
@@ -38,14 +46,14 @@ export default async function Home() {
         <SocialCard
           link="https://leetcode.com/ParzivalEugene/"
           icon={LeetcodeIcon}
-          descriptionUrl="info/get-leetcode-info"
-          items={2}
+          description={[
+            `${leetcodeDescription.rank} rank`,
+            `${leetcodeDescription.solved} solved`,
+          ]}
           title="ParzivalEugene"
           className="hover:bg-[#15110D] hover:shadow-[#EBA340]/40 leetcode"
         />
-        <Suspense fallback={<SpotifyCardSkeleton />}>
-          <SpotifyCard />
-        </Suspense>
+        <SpotifyCard />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 "use server";
 
 import { env } from "@/env";
-import { getSpotifyLink } from "./getMongoInfo";
+import { spotifyPlaylistId } from "@/data/constants";
 
 export interface GetSpotifyInfo {
   title: string;
@@ -38,12 +38,10 @@ export const getSpotifyInfo = async (): Promise<GetSpotifyInfo> => {
     link: "https://open.spotify.com/playlist/52ujyIugSAiTRwaQFnwKhL",
   };
   const token = await getToken();
-  const spotifyLink = await getSpotifyLink();
-  const playlistId = spotifyLink?.split("/")[4].split("?")[0];
-  if (!token || !spotifyLink) return defaultValue;
+  if (!token) return defaultValue;
 
   const playlistRes = await fetch(
-    `https://api.spotify.com/v1/playlists/${playlistId}?fields=name,images`,
+    `https://api.spotify.com/v1/playlists/${spotifyPlaylistId}?fields=name,images`,
     {
       method: "GET",
       headers: {
@@ -56,7 +54,7 @@ export const getSpotifyInfo = async (): Promise<GetSpotifyInfo> => {
   );
 
   const countRes = await fetch(
-    `https://api.spotify.com/v1/playlists/${playlistId}/tracks?fields=total`,
+    `https://api.spotify.com/v1/playlists/${spotifyPlaylistId}/tracks?fields=total`,
     {
       method: "GET",
       headers: {
@@ -78,6 +76,6 @@ export const getSpotifyInfo = async (): Promise<GetSpotifyInfo> => {
     title: playlistResponse.name,
     songs: countResponse.total,
     cover: playlistResponse.images[0].url,
-    link: `https://open.spotify.com/playlist/${playlistId}`,
+    link: `https://open.spotify.com/playlist/${spotifyPlaylistId}`,
   };
 };

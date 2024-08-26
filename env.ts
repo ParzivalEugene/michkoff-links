@@ -6,7 +6,6 @@ export const env = createEnv({
     SPOTIFY_CLIENT_ID: z.string(),
     SPOTIFY_CLIENT_SECRET: z.string(),
     GITHUB_TOKEN: z.string(),
-    MONGO_URI: z.string(),
   },
   experimental__runtimeEnv: {},
 });

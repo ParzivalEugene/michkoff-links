@@ -1,7 +1,44 @@
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  icons: [
+    {
+      rel: "icon",
+      url: "/m.svg",
+    },
+  ],
+  title: "Michkoff | Links",
+  description: "All my links that you need",
+  twitter: {
+    site: "@ParzivalEugene",
+    images: [
+      {
+        url: "/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Michkoff | Links",
+      },
+    ],
+  },
+  openGraph: {
+    type: "website",
+    url: "https://links.michkoff.com/",
+    title: "Michkoff | Links",
+    description: "All my links that you need",
+    images: [
+      {
+        url: "/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Michkoff | Links",
+      },
+    ],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -9,29 +46,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <title>Michkoff | Links</title>
-      <meta name="title" content="Michkoff | Links" />
-      <meta name="description" content="All my links that you need" />
-      <link rel="icon" sizes="256x256" href="/e_logo.svg" />
-
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://links.michkoff.com/" />
-      <meta property="og:title" content="Michkoff | Links" />
-      <meta property="og:description" content="All my links that you need" />
-      <meta property="og:image" content="/preview.png" />
-
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://links.michkoff.com/" />
-      <meta property="twitter:title" content="Michkoff | Links" />
-      <meta
-        property="twitter:description"
-        content="All my links that you need"
-      />
-      <meta property="twitter:image" content="/preview.png" />
-      <body className={inter.className}>
-          {children}
-      </body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
