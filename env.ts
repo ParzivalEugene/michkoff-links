@@ -5,7 +5,7 @@ export const env = createEnv({
   server: {
     SPOTIFY_CLIENT_ID: z.string(),
     SPOTIFY_CLIENT_SECRET: z.string(),
-    GITHUB_TOKEN: z.string(),
+    GH_TOKEN: z.string(),
   },
   experimental__runtimeEnv: {},
 });

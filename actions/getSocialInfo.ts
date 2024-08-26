@@ -30,7 +30,7 @@ export const getGithubInfo = async (): Promise<GetGithubInfo | undefined> => {
         }`,
     }),
     headers: {
-      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      Authorization: `Bearer ${env.GH_TOKEN}`,
     },
     next: {
       revalidate: 60,
@@ -52,7 +52,9 @@ export const getGithubInfo = async (): Promise<GetGithubInfo | undefined> => {
   };
 };
 
-export const getLeetcodeInfo = async (): Promise<GetLeetcodeInfo | undefined> => {
+export const getLeetcodeInfo = async (): Promise<
+  GetLeetcodeInfo | undefined
+> => {
   const res = await fetch(
     "https://leetcode-stats-api.herokuapp.com/ParzivalEugene",
     {

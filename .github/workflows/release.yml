@@ -22,9 +22,9 @@ jobs:
       - name: Set ghcr.io url
         run: |
           echo "REPO=${GITHUB_REPOSITORY@L}" >> "${GITHUB_ENV}"
-          echo "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}" >> "${GITHUB_ENV}"
-          echo "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> "${GITHUB_ENV}"
-          echo "GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> "${GITHUB_ENV}"
+          echo "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}" >> .env
+          echo "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> .env
+          echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> .env
 
       - name: Docker meta
         id: meta
@@ -53,4 +53,4 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
