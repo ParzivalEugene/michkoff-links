@@ -23,9 +23,9 @@ RUN --mount=type=secret,id=SPOTIFY_CLIENT_ID \
   --mount=type=secret,id=GH_TOKEN \
   export SPOTIFY_CLIENT_ID=$(cat /run/secrets/SPOTIFY_CLIENT_ID) &&\
   export SPOTIFY_CLIENT_SECRET=$(cat /run/secrets/SPOTIFY_CLIENT_ID) &&\
-  export GH_TOKEN=$(cat /run/secrets/SPOTIFY_CLIENT_ID)
-
-RUN corepack enable pnpm && pnpm run build
+  export GH_TOKEN=$(cat /run/secrets/SPOTIFY_CLIENT_ID) && \
+  corepack enable pnpm &&\
+  pnpm run build
 
 FROM base AS runner
 WORKDIR /app
