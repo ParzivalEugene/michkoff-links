@@ -22,9 +22,6 @@ jobs:
       - name: Set ghcr.io url
         run: |
           echo "REPO=${GITHUB_REPOSITORY@L}" >> "${GITHUB_ENV}"
-          echo "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}" >> .env
-          echo "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> .env
-          echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> .env
 
       - name: Docker meta
         id: meta
@@ -45,6 +42,10 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          secrets: |
+            "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}"
+            "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}"
+            "GH_TOKEN=${{ secrets.GH_TOKEN }}"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           cache-from: type=gha
