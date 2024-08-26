@@ -1,0 +1,12 @@
+name: "links"
+
+services:
+  links:
+    image: "links"
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
