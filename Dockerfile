@@ -1,52 +1,55 @@
 FROM node:18-alpine AS base
 
-FROM base AS deps
-RUN apk add --no-cache libc6-compat
+FROM base AS builder
+
 WORKDIR /app
 
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 RUN \
   if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
+  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i; \
+  else echo "Warning: Lockfile not found. It is recommended to commit lockfiles to version control." && yarn install; \
   fi
 
-
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN --mount=type=secret,id=SPOTIFY_CLIENT_ID \
-  --mount=type=secret,id=SPOTIFY_CLIENT_SECRET \
-  --mount=type=secret,id=GH_TOKEN \
-  export SPOTIFY_CLIENT_ID=$(cat /run/secrets/SPOTIFY_CLIENT_ID) &&\
-  export SPOTIFY_CLIENT_SECRET=$(cat /run/secrets/SPOTIFY_CLIENT_ID) &&\
-  export GH_TOKEN=$(cat /run/secrets/SPOTIFY_CLIENT_ID) && \
-  corepack enable pnpm &&\
-  pnpm run build
+ARG SPOTIFY_CLIENT_ID
+ARG SPOTIFY_CLIENT_SECRET
+ARG GH_TOKEN
+ENV SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+ENV SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+ENV GH_TOKEN=${GH_TOKEN}
+
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN \
+  if [ -f yarn.lock ]; then yarn build; \
+  elif [ -f package-lock.json ]; then npm run build; \
+  elif [ -f pnpm-lock.yaml ]; then pnpm build; \
+  else npm run build; \
+  fi
 
 FROM base AS runner
-WORKDIR /app
 
-ENV NODE_ENV=production
+WORKDIR /app
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
+USER nextjs
 
 COPY --from=builder /app/public ./public
-
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
-
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-USER nextjs
-EXPOSE 3000
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
+ARG SPOTIFY_CLIENT_ID
+ARG SPOTIFY_CLIENT_SECRET
+ARG GH_TOKEN
+ENV SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+ENV SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+ENV GH_TOKEN=${GH_TOKEN}
+
+ENV NEXT_TELEMETRY_DISABLED 1
 
 CMD ["node", "server.js"]
 

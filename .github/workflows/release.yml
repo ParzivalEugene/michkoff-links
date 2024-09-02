@@ -39,13 +39,15 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Set up Environment
+        run: |
+          echo "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "GH_TOKEN=${{ secrets.GH_TOKEN }}" >> $GITHUB_ENV
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          secrets: |
-            "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}"
-            "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}"
-            "GH_TOKEN=${{ secrets.GH_TOKEN }}"
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           cache-from: type=gha
@@ -56,19 +58,20 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: ${{ secrets.SERVER_PORT }}
-          script: |
-            docker-compose down links
-            docker-compose pull
-            docker-compose up links -d
+  # deploy:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Deploy to server
+  #       uses: appleboy/ssh-action@v1.0.3
+  #       with:
+  #         host: ${{ secrets.SERVER_HOST }}
+  #         username: ${{ secrets.SERVER_USERNAME }}
+  #         password: ${{ secrets.SERVER_PASSWORD }}
+  #         key: ${{ secrets.SERVER_SSH_KEY }}
+  #         port: ${{ secrets.SERVER_PORT }}
+  #         script: |
+  #           docker-compose down links
+  #           docker-compose pull
+  #           docker-compose up links -d
 

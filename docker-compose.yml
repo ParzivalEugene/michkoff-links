@@ -3,10 +3,12 @@ name: "links"
 services:
   links:
     image: "links"
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SPOTIFY_CLIENT_ID: ${SPOTIFY_CLIENT_ID}
+        SPOTIFY_CLIENT_SECRET: ${SPOTIFY_CLIENT_SECRET}
+        GH_TOKEN: ${GH_TOKEN}
     ports:
       - "3000:3000"
-    environment:
-      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
-      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
-      - GH_TOKEN=${GH_TOKEN}
