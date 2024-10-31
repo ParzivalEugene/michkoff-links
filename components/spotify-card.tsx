@@ -1,4 +1,3 @@
-import { GetSpotifyInfo, getSpotifyInfo } from "@/actions/getSpotifyInfo";
 import SpotifyLogo from "@/public/logos/spotify.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,8 +5,12 @@ import { Badge } from "./ui/badge";
 import { CardDescription } from "./ui/card";
 
 export const SpotifyCard = async () => {
-  const { title, songs, cover, link } =
-    (await getSpotifyInfo()) as GetSpotifyInfo;
+  const { title, songs, cover, link } = {
+    title: "Industrial",
+    songs: 94,
+    cover: "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c357cb666cb5280bf2460b3df",
+    link: "https://open.spotify.com/playlist/0GaizFIurafzHZtUTcWGVv",
+  };
 
   return (
     <Link
