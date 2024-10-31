@@ -7,8 +7,6 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        SPOTIFY_CLIENT_ID: ${SPOTIFY_CLIENT_ID}
-        SPOTIFY_CLIENT_SECRET: ${SPOTIFY_CLIENT_SECRET}
         GH_TOKEN: ${GH_TOKEN}
     ports:
       - "3000:3000"
