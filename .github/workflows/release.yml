@@ -46,8 +46,10 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/${{ env.REPO }}:${{ steps.meta.outputs.tag }}
+        continue-on-error: false
 
       - name: Release
         uses: softprops/action-gh-release@v2
