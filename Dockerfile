@@ -45,4 +45,4 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 CMD ["node", "server.js"]
 
-LABEL org.opencontainers.image.source https://github.com/ParzivalEugene/Links
+LABEL org.opencontainers.image.source https://github.com/ParzivalEugene/michkoff-links
